@@ -58,6 +58,10 @@
 								<div class="row">
 									<div class="column" style="width:50%;">
 										<h2>Tel 电话：<a href="tel:917-792-7600">917-792-7600</a></h2>
+										微信号：<span id="target">yuxielaw</span>
+										<button class="btn" data-clipboard-action="copy" data-clipboard-target="#target" id="copy_btn">    
+											点击复制    
+										</button>
 										<img src="images/wechat.PNG" style="width:70%" alt="" />
 									</div>
 									<div class="column" style="width:50%;">
@@ -98,7 +102,7 @@
 										<h2>商业租约</h2>
 									</a>
 								</article>
-<!-- 
+								<!-- 
 								<article class="style3">
 									<span class="image">
 										<img src="images/pic03.jpg" alt="" />
@@ -194,6 +198,17 @@
 			</div>
 
 		<!-- Scripts -->
+			<script>    
+				$(document).ready(function(){       
+					var clipboard = new Clipboard('#copy_btn');    
+					clipboard.on('success', function(e) {    
+						alert("复制成功，打开微信添加好友",1500); 
+						window.location.href='weixin://';
+						e.clearSelection();    
+						console.log(e.clearSelection);    
+					});    
+				});    
+			</script>    
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
