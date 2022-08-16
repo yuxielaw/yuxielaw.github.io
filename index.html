@@ -59,19 +59,10 @@
 									<div class="column" style="width:50%;">
 										<h2>Tel 电话：<a href="tel:917-792-7600">917-792-7600</a></h2>
 										<div>
-											微信号：<input type="text" id="tid" name="tid" value="yuxielaw" readonly="readonly">
+											微信号：<input type="text" id="wechatId" name="wechatId" value="yuxielaw" readonly="readonly">
 											<br/>
 											<button class="btn" onclick="copyUrl()">一键复制并打开微信</button>
 										</div>
-										<script> 
-											function copyUrl(){
-												var input = document.getElementById("tid");
-												input.select();
-												input.setSelectionRange(0, input.value.length), document.execCommand('Copy');
-												var locatUrl = "weixin://";
-												window.location.href = "weixin://";
-											}
-										</script>
 										<br/>
 										<img src="images/wechat.PNG" style="width:70%" alt="" />
 									</div>
@@ -213,7 +204,23 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>  
+			<script src="assets/js/main.js"></script>
+			<script> 
+				function copyUrl(){
+					var copyText = document.getElementById("wechatId");
+
+					/* Select the text field */
+					copyText.select();
+					copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+					/* Copy the text inside the text field */
+					navigator.clipboard.writeText(copyText.value);
+
+					var locatUrl = "weixin://";
+					window.location.href = "weixin://";
+				}
+			</script>
+
 
 	</body>
 </html>
